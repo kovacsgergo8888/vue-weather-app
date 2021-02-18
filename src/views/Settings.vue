@@ -2,6 +2,7 @@
   <label for="api-key">API key</label>
   <input id="api-key" v-model="apiKey" />
   <button @click="save">save</button>
+  <router-link :to="{name: 'weather'}">home</router-link>
 </template>
 
 <script lang="ts">

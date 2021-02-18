@@ -5,7 +5,7 @@ interface SettingStorageInterface {
   set(setting: Setting): void
 }
 
-export class SettingStorage implements SettingStorageInterface {
+class SettingStorage implements SettingStorageInterface {
   get (): Setting {
     return {
       apiKey: globalThis.localStorage.getItem('apiKey')
@@ -16,3 +16,5 @@ export class SettingStorage implements SettingStorageInterface {
     globalThis.localStorage.setItem('apiKey', (setting.apiKey || ''))
   }
 }
+
+export default new SettingStorage()

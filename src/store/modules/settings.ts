@@ -1,7 +1,5 @@
-import {SettingStorage} from '../../middlewares/settingStorage'
+import settingStorage from '../../middlewares/settingStorage'
 import {Setting} from '../../Domain/Setting/Setting'
-
-const settingStorage = new SettingStorage()
 
 export default {
   namespaced: true,
