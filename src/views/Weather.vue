@@ -24,7 +24,13 @@ export default defineComponent({
       data: {}
     })
     const getInfo = async () => {
-      weatherInfo.data = await getData(city.value)
+      try {
+        weatherInfo.data = await getData(city.value)
+      } catch (error) {
+        weatherInfo.data = {
+          error
+        }
+      }
     }
     return {
       getInfo,
