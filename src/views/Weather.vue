@@ -1,7 +1,7 @@
 <template>
   <div v-if="apiKey.length">
     <input v-model="city" />
-    <button @click="getInfo">get info</button>
+    <button @click="getInfo" @keyup.enter="getInfo">get info</button>
     {{weatherInfo}}
   </div>
   <div v-else>No api key provided</div>

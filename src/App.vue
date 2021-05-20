@@ -1,5 +1,9 @@
 <template>
-  <router-view></router-view>
+  <div class="m-0 text-center">
+    <div class="max-w-sm border-2">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
