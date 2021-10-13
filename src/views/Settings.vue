@@ -5,27 +5,19 @@
   <router-link :to="{name: 'weather'}">home</router-link>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, computed, onMounted } from 'vue'
+<script lang="ts" setup>
+import { ref, onMounted } from 'vue'
 import {useStore} from 'vuex'
 
-export default defineComponent({
-  name: "Settings",
-  setup () {
-    const store = useStore()
-    const apiKey = ref('')
+const store = useStore()
+const apiKey = ref('')
 
-    const loadApiKey = async () => {
-      await store.dispatch('settings/loadApiKey')
-      apiKey.value = store.state.settings.apiKey
-    }
-    
-    onMounted(loadApiKey)
-    
-    return {
-      apiKey,
-      save: () => store.dispatch('settings/saveApiKey', {apiKey: apiKey.value})
-    }
-  }
-});
+const loadApiKey = async (): Promise<void> => {
+  await store.dispatch('settings/loadApiKey')
+  apiKey.value = store.state.settings.apiKey
+}
+
+onMounted(loadApiKey)
+const save = (): Promise<void> => store.dispatch('settings/saveApiKey', {apiKey: apiKey.value})
+
 </script>
